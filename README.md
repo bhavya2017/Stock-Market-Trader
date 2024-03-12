@@ -1,0 +1,15 @@
+# Stock market trader
+Basic Stock trading program that provides a platform for clients to sell and buy stocks and the server retrieves real-time stock prices from a third-party API
+This code is part of a stock trading program that provides a platform for clients to trade stocks. The program is implemented using the Python programming language and makes use of several built-in modules, including the socket, threading, and json modules.
+
+The server component of the program is responsible for listening for incoming connections from clients, processing buy and sell orders, maintaining a list of traded stocks, and retrieving real-time stock prices from a third-party API. The server is implemented using a server socket that listens for incoming connections on a specified IP address and port number. When a client connects to the server, a new thread is created to handle the client connection using the handle_client function.
+
+The handle_client function receives data from the client in the form of a JSON-encoded list of buy and sell orders. The function decodes this data and processes each order by appending it to a global list of traded stocks. The handle_client function also calls the print_traded_stocks function to print out the updated list of traded stocks.
+
+In addition to processing buy and sell orders, the server retrieves real-time stock prices from a third-party API using the get_stock_prices function. This function sends HTTP GET requests to the API for each stock symbol in a predefined list and parses the JSON response to extract the current stock price. The server then sends these real-time stock prices to the client as a JSON-encoded dictionary.
+
+The client component of the program is responsible for connecting to the server, sending buy and sell orders, and receiving real-time stock updates. The client is implemented using a client socket that connects to the server on a specified IP address and port number. Once connected, the client sends a list of buy orders to the server as a JSON-encoded string. The client then enters a loop where it receives real-time stock updates from the server and prints them out.Overall, this project provides a robust platform for clients to trade stocks in real-time. The server efficiently processes buy and sell orders from multiple clients simultaneously and maintains an up-to-date list of traded stocks. The real-time stock updates provide clients with valuable information for making informed trading decisions. The modular design of the program allows for easy expansion and customization to meet the needs of different users.
+Software requirements:
+Python 3.x: The code is written in Python and makes use of several built-in modules such as socket, threading, and json.
+A third-party API key: The get_stock_prices function retrieves real-time stock prices from a third-party API. An API key is required to access this service.
+A network connection: The server and client components of the program communicate with each other over a network connection. A stable network connection is required for the program to function properly.
